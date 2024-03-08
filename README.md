@@ -12,14 +12,16 @@ To use Parseltongue, follow these steps:
 2. Create a virtual environment: `python -m venv .venv`
 3. Activate the virtual environment: `source .venv/bin/activate`
 4. Install required dependencies by running `pip install -r requirements.txt`.
-5. Set up a local Qdrant vector database and configure the connection details in the application `.env` file. You can refer to `.env.example`, as it contains all configurations needed.
+5. Set up a local Qdrant vector database. You can refer to the [Qdrant quickstart guide](https://qdrant.tech/documentation/quick-start/).
+6. Configure the connection details in the application `.env` file. You can refer to `.env.example`, as it contains all configurations needed.
+7. Run your Qdrant service:
 ```shell
 docker run -p 6333:6333 -p 6334:6334 \
     -v $/path/to/local/storage:/qdrant/storage:z \
     qdrant/qdrant
 ```
-6. Run the application with `uvicorn app:app --reload`.
-7. Start playing!
+8. Run the application with `uvicorn app:app --reload`.
+9. Start playing!
 
 ## Example
 
