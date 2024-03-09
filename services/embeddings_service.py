@@ -24,8 +24,9 @@ class EmbeddingsService:
         try:
             self.vector_db.get_collection(self.collection_name)
         except UnexpectedResponse as e:
-            if "doesn't exist" in str(e):
-                print(f"Collection {self.collection_name} not found. Creating it. Error: {str(e)}")
+            if "Not found" in str(e):
+                print("""Collection {self.collection_name} not found.
+                      Creating it. Error: {str(e)}""")
                 self.vector_db.create_collection(
                     collection_name=self.collection_name,
                     vectors_config=models.VectorParams(
